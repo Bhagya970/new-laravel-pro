@@ -30,16 +30,15 @@
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                task
               </th>
-           
+           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+               status
+              </th>
               
             </tr>
           </thead>
 
          
           <tbody class="bg-white divide-y divide-gray-200">
-         
-
-
             <tr>
             
               <td class="px-6 py-4 whitespace-nowrap">
@@ -47,13 +46,19 @@
               </td>
               @foreach($user->tasks as $row)
                <td class="px-6 py-4 whitespace-nowrap">
-               {{$row->taskdescription}}
+               {{$row->taskdescription}} 
               </td>
-              @endforeach
-              </tr>
-           
-            
+             @endforeach
+              <td class="px-6 py-4 whitespace-nowrap">
+              <select>
+                  <option  disabled="true">Select status</option>
+                  <option value="task">Task completed</option>
+                  <option value="pending">pending</option>
+                  <option value="onhold">on hold</option>
 
+              </select>
+              </td>
+              </tr>
           </tbody>    
           </table>
            </div>
