@@ -18,14 +18,14 @@ class EmployeeController extends Controller
         //$user = new User;
         $user = User::get()->where('name',Auth::user()->name); 
         
-      return view('dashboard',['user'=>$user]);
+      return view('employeemodule.dashboard',['user'=>$user]);
     }
     public function show()
     {
     	 $user =  User::find(Auth::user()->id);
     	  //$task = tasks::find(1);
 
-    	return view('tasks',['user'=>$user]);
+    	return view('employeemodule.tasks',['user'=>$user]);
 
 
     	// return DB::table('users')->join('tasks', 'tasks.user_id', 'user_id')->get();
@@ -42,3 +42,4 @@ class EmployeeController extends Controller
      
 
 }
+
