@@ -4,26 +4,45 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
-                    </a>
-                </div>
+            
 
-                <!-- Navigation Links -->
+                <!-- Admin navigation link -->
+                @if(Auth::user()->name=='admin')
+                   <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('adminmodule.dashboard') }}" :active="request()->routeIs('adminmodule.dashboard')">
+                        {{ __('Employees') }}
+                    </x-jet-nav-link>
+                </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('adminmodule.list') }}" :active="request()->routeIs('adminmodule.list')">
+                        {{ __('List') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('adminmodule.task') }}" :active="request()->routeIs('adminmodule.task')">
+                        {{ __('Task') }}
+                    </x-jet-nav-link>
+                </div>
+                <!-- Admin navigation link -->
+                  @else
+
+                 <!-- Navigation Links -->
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('employeemodule.dashboard') }}" :active="request()->routeIs('employeemodule.dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('tasks') }}" :active="request()->routeIs('tasks')">
+                    <x-jet-nav-link href="{{ route('employeemodule.tasks') }}" :active="request()->routeIs('employeemodule.tasks')">
                         {{ __('Tasks') }}
                     </x-jet-nav-link>
                 </div>
+                @endif
             </div>
-
+             <!-- Navigation Links -->
+           
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-jet-dropdown align="right" width="48">
@@ -123,7 +142,7 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+            <x-jet-responsive-nav-link href="{{ route('employeemodule.dashboard') }}" :active="request()->routeIs('employeemodule.dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
         </div>
