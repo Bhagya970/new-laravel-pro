@@ -15,51 +15,34 @@
   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
       <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-      <table id="example" class="table table-striped table-bordered" style="width:100%">
-          <thead class="bg-gray-50">
-            <tr>
-             <!--  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-               Id
-              </th> -->
-              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                name
-              </th>
-           <!--    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-               email
-              </th> -->
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-               task
-              </th>
-           <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-               status
-              </th>
-              
-            </tr>
-          </thead>
+        <table id="proposalTable" class="display table proposal-list-table" style="width:100%">
+          
+            <div>
+               <tr>
+              <th>name</th>
+              <th>task</th>
+              <th>status</th>
+               </tr>
+              </div>
+       
 
          
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
+          <div>
             
-              <td class="px-6 py-4 whitespace-nowrap">
-                {{$user->name}}
-              </td>
+            <th>{{$user->name}}</th>
               @foreach($user->tasks as $row)
-               <td class="px-6 py-4 whitespace-nowrap">
-               {{$row->taskdescription}} 
-              </td>
-             @endforeach
-              <td class="px-6 py-4 whitespace-nowrap">
+               <th>{{$row->taskdescription}}</th>
+             <th>
               <select>
                   <option  disabled="true">Select status</option>
                   <option value="task">Task completed</option>
                   <option value="pending">pending</option>
                   <option value="onhold">on hold</option>
-
-              </select>
-              </td>
-              </tr>
-          </tbody>    
+                </select>
+              </th>
+               @endforeach
+              </div>
+            
           </table>
            </div>
           </div>
@@ -67,8 +50,6 @@
           </div>
           </div>
           </div>
-
-
           </div>
         </div>
     </div>
