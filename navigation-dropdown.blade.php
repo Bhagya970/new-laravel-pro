@@ -23,8 +23,14 @@
                         {{ __('Task') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                        {{ __('Contact us') }}
+                    </x-jet-nav-link>
+                </div>
+               @endif
                 <!-- Admin navigation link -->
-                  @else
+                @if(Auth::user()->role=='employee')
 
                  <!-- Navigation Links -->
 
@@ -37,6 +43,11 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('employeemodule.tasks') }}" :active="request()->routeIs('employeemodule.tasks')">
                         {{ __('Tasks') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('sms') }}" :active="request()->routeIs('sms')">
+                        {{ __('Contact') }}
                     </x-jet-nav-link>
                 </div>
                 @endif
